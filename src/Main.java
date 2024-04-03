@@ -18,7 +18,8 @@ public class Main {
     public static void main(String[] args) {
         base();
         printEmployee();
-        printMin_MaxSalaryEmployee();
+        printMinSalaryEmployee();
+        printMaxSalaryEmployee();
         System.out.println("Сумма затрат на ЗП в месяц: " + getSalaryEmployees());
         System.out.println("Среднее значение зарплат: " + getSalaryEmployees() / employees.length);
         printEmployee();
@@ -37,22 +38,28 @@ public class Main {
         return sum;
     }
 
-    private static void printMin_MaxSalaryEmployee() {
+    private static void printMinSalaryEmployee() {
         int minSalaryEmployee = employees[0].getSalaryEmployee();
-        int maxSalaryEmployee = employees[0].getSalaryEmployee();
         String employeesMinSalary = employees[0].getFullNameEmployee();
-        String employeesMaxSalary = employees[0].getFullNameEmployee();
         for (int i = 1; i < employees.length; i++) {
             if (employees[i].getSalaryEmployee() < minSalaryEmployee) {
                 minSalaryEmployee = employees[i].getSalaryEmployee();
                 employeesMinSalary = employees[i].getFullNameEmployee();
             }
+        }
+        System.out.println("Минимальная зарплата у сотрудника: " + employeesMinSalary + " равна: " + minSalaryEmployee);
+    }
+
+    private static void printMaxSalaryEmployee() {
+        int maxSalaryEmployee = employees[0].getSalaryEmployee();
+        String employeesMaxSalary = employees[0].getFullNameEmployee();
+        for (int i = 1; i < employees.length; i++) {
             if (employees[i].getSalaryEmployee() > maxSalaryEmployee) {
                 maxSalaryEmployee = employees[i].getSalaryEmployee();
                 employeesMaxSalary = employees[i].getFullNameEmployee();
             }
+
         }
-        System.out.println("Минимальная зарплата у сотрудника: " + employeesMinSalary + " равна: " + minSalaryEmployee);
         System.out.println("Максимальная зарплата у сотрудника: " + employeesMaxSalary + " равна: " + maxSalaryEmployee);
     }
 }
